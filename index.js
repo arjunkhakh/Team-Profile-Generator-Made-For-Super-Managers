@@ -128,7 +128,7 @@ function generateMarkdown1(data) {
         <div class="card-body centre">
           <h5 class="card-title">${ data.managerName }</h5>
           <p class="card-text">ID Number: ${ data.managerID }</p>
-          <p class="card-text">Email: ${ data.managerEmail }</p>
+          <p class="card-text">Email: <a href="mailto:${ data.managerEmail }">${ data.managerEmail }</a> </p>
           <p class="card-text">Office Number: ${ data.managerNumber }</p>
         </div>
       </div>
@@ -145,8 +145,8 @@ function generateMarkdown1(data) {
             <div class="card-body centre">
               <h5 class="card-title">${ data.EngineerName }</h5>
               <p class="card-text">ID Number: ${ data.EngineerID }</p>
-              <p class="card-text">Email: ${ data.EngineerEmail }</p>
-              <p class="card-text">Github: ${ data.EngineerGithub }</p>
+              <p class="card-text">Email: <a href="mailto:${ data.EngineerEmail }">${ data.EngineerEmail }</a></p>
+              <p class="card-text">Github: <a href="https://github.com/${ data.EngineerGithub }">${ data.EngineerGithub }</a></p>
             </div>
           </div>
     `;
@@ -158,7 +158,7 @@ function generateMarkdown1(data) {
             <div class="card-body centre">
               <h5 class="card-title">${ data.InternName }</h5>
               <p class="card-text">ID Number: ${ data.InternID }</p>
-              <p class="card-text">Email: ${ data.InternEmail }</p>
+              <p class="card-text">Email: <a href="mailto:${ data.InternEmail }">${ data.InternEmail }</a></p>
               <p class="card-text">School: ${ data.InternsSchool }</p>
             </div>
           </div>
