@@ -135,7 +135,7 @@ function generateMarkdown1(data) {
         <div class="card-body centre">
         <div class="card m-5" style="width: 89rem;">
         <div class="card-body centre">
-          <h5 class="card-title">${ data.managerName }</h5>
+          <h5 class="card-title">${ data.managerName } - Manager</h5>
           <p class="card-text">ID Number: ${ data.managerID }</p>
           <p class="card-text">Email: <a href="mailto:${ data.managerEmail }">${ data.managerEmail }</a> </p>
           <p class="card-text">Office Number: ${ data.managerNumber }</p>
@@ -153,7 +153,7 @@ function generateMarkdown1(data) {
     return `
         <div class="card m-5" style="width: 91rem;">
             <div class="card-body centre">
-              <h5 class="card-title">${ data.EngineerName }</h5>
+              <h5 class="card-title">${ data.EngineerName } - Engineer</h5>
               <p class="card-text">ID Number: ${ data.EngineerID }</p>
               <p class="card-text">Email: <a href="mailto:${ data.EngineerEmail }">${ data.EngineerEmail }</a></p>
               <p class="card-text">Github: <a href="https://github.com/${ data.EngineerGithub }">${ data.EngineerGithub }</a></p>
@@ -167,7 +167,7 @@ function generateMarkdown1(data) {
     return `
         <div class="card m-5" style="width: 91rem;">
             <div class="card-body centre">
-              <h5 class="card-title">${ data.InternName }</h5>
+              <h5 class="card-title">${ data.InternName } - Intern</h5>
               <p class="card-text">ID Number: ${ data.InternID }</p>
               <p class="card-text">Email: <a href="mailto:${ data.InternEmail }">${ data.InternEmail }</a></p>
               <p class="card-text">School: ${ data.InternsSchool }</p>
@@ -210,9 +210,37 @@ inq.prompt(questions1).then((answers) => {
         inq.prompt(questions2).then((answers) => {
             writeToFile1(__dirname + "/dist/index1.html", answers);
 
+            if (answers.list === "Engineer") {
+                inq.prompt(questions2).then((answers) => {
+                    writeToFile1(__dirname + "/dist/index1.html", answers);
+
+                    if (answers.list === "Intern") {
+                        inq.prompt(questions3).then((answers) => {
+                            writeToFile2(__dirname + "/dist/index1.html", answers);
+        
+                            if (answers.list === "Engineer") {
+                                inq.prompt(questions2).then((answers) => {
+                                    writeToFile1(__dirname + "/dist/index1.html", answers);
+                                }
+                                )
+                            }
+                        }
+                        )
+                    }
+                }
+                )
+            }
+
             if (answers.list === "Intern") {
                 inq.prompt(questions3).then((answers) => {
                     writeToFile2(__dirname + "/dist/index1.html", answers);
+
+                    if (answers.list === "Engineer") {
+                        inq.prompt(questions2).then((answers) => {
+                            writeToFile1(__dirname + "/dist/index1.html", answers);
+                        }
+                        )
+                    }
                 }
                 )
             }
@@ -227,6 +255,34 @@ inq.prompt(questions1).then((answers) => {
             if (answers.list === "Engineer") {
                 inq.prompt(questions2).then((answers) => {
                     writeToFile1(__dirname + "/dist/index1.html", answers);
+
+                    if (answers.list === "Intern") {
+                        inq.prompt(questions3).then((answers) => {
+                            writeToFile2(__dirname + "/dist/index1.html", answers);
+        
+                            if (answers.list === "Engineer") {
+                                inq.prompt(questions2).then((answers) => {
+                                    writeToFile1(__dirname + "/dist/index1.html", answers);
+                                }
+                                )
+                            }
+                        }
+                        )
+                    }
+                }
+                )
+            }
+
+    if (answers.list === "Intern") {
+    inq.prompt(questions3).then((answers) => {
+        writeToFile2(__dirname + "/dist/index1.html", answers);
+
+            if (answers.list === "Engineer") {
+            inq.prompt(questions2).then((answers) => {
+            writeToFile1(__dirname + "/dist/index1.html", answers);
+            }
+                        )
+                    }
                 }
                 )
             }
