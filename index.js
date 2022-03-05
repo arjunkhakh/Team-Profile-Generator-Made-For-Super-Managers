@@ -168,7 +168,7 @@ function generateMarkdown1(data) {
         <div class="card m-5" style="width: 91rem;">
             <div class="card-body centre">
               <h5 class="card-title">${ data.InternName } - Intern</h5>
-              <p class="card-text">ID Number: ${ data.InternID }</p>
+              <p class="card-text">ID Number: ${ data.InternsID }</p>
               <p class="card-text">Email: <a href="mailto:${ data.InternsEmail }">${ data.InternsEmail }</a></p>
               <p class="card-text">School: ${ data.InternsSchool }</p>
             </div>
