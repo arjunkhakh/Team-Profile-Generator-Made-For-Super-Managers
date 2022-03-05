@@ -1,3 +1,4 @@
+// Requiring The Classes, Inqurier and FS Packages.
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -6,6 +7,8 @@ const Engineer = require("./lib/Engineer");
 const inq = require("inquirer");
 const fs = require("fs");
 
+
+// Manager Question Bank
 const questions1 = [
     {
         type: "input",
@@ -39,6 +42,8 @@ const questions1 = [
     }
 ]
 
+
+// Engineer Question Bank
 const questions2 = [
     {
         type: "input",
@@ -72,6 +77,8 @@ const questions2 = [
     }
 ]
 
+
+// Intern Question Bank
 const questions3 = [
     {
         type: "input",
@@ -105,6 +112,8 @@ const questions3 = [
     }
 ]
 
+
+// A function of the HTML for the page of the Manager Input
 function generateMarkdown1(data) {
     return `
           <!DOCTYPE html>
@@ -139,6 +148,7 @@ function generateMarkdown1(data) {
     `;
   }
 
+  // A Card which appends the data of the engineer answers if included
   function generateMarkdown2(data) {
     return `
         <div class="card m-5" style="width: 91rem;">
@@ -152,6 +162,7 @@ function generateMarkdown1(data) {
     `;
   }
 
+   // A Card which appends the data of the intern answers if included
   function generateMarkdown3(data) {
     return `
         <div class="card m-5" style="width: 91rem;">
@@ -165,6 +176,8 @@ function generateMarkdown1(data) {
     `;
   }
 
+
+  // A Function which writes the information of the Manager Answers
 function writeToFile(filename, data) {
     fs.appendFile(filename, generateMarkdown1(data), function (err) {
         if (err) throw err;
@@ -172,6 +185,7 @@ function writeToFile(filename, data) {
       })
 }
 
+// A Function which appends over the information of the Engineer Answers
 function writeToFile1(filename, data) {
     fs.appendFile(filename, generateMarkdown2(data), function (err) {
         if (err) throw err;
@@ -179,6 +193,7 @@ function writeToFile1(filename, data) {
       })
 }
 
+// A Function which appends over the information of the Intern Answers
 function writeToFile2(filename, data) {
     fs.appendFile(filename, generateMarkdown3(data), function (err) {
         if (err) throw err;
@@ -187,6 +202,7 @@ function writeToFile2(filename, data) {
 }
 
 
+// Prompts all the answer into the index.html file. Also includes if statements for when the user chooses to add Engineer, Intern or No More Members.
 inq.prompt(questions1).then((answers) => {
     writeToFile(__dirname + "/dist/index1.html", answers);
 
