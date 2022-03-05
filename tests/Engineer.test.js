@@ -1,6 +1,7 @@
-
+// Requiring The Engineer Class
 const Engineer = require("../lib/Engineer");
 
+// A Test For the Engineer Class which should return the same variables which it is equal to for each parameter
 describe('Getting Engineer Object Attribites', () => {
     
     it('Getting the Engineer Attributes from the Object', () => {
