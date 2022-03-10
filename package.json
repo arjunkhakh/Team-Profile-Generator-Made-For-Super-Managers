@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.0"
+  },
+  "name": "teambuild",
+  "version": "1.0.0",
+  "description": "team building",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "arjunkhakh"
+  },
+  "author": "arjun",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
